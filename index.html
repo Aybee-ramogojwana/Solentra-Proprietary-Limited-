@@ -658,7 +658,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900">File Size</h4>
-                                <p class="text-gray-600">80.2 MB</p>
+                                <p class="text-gray-600">15.2 MB</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900">Requires</h4>
@@ -1158,6 +1158,83 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+    </script>
+    
+    <!-- Firebase Analytics -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAnalytics, isSupported, logEvent } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDOIjFCBUabekig_FwQ9SATL1RERZXFRyc",
+            authDomain: "solentra-188bd.firebaseapp.com",
+            projectId: "solentra-188bd",
+            storageBucket: "solentra-188bd.firebasestorage.app",
+            messagingSenderId: "854428103374",
+            appId: "1:854428103374:web:b3b1817e942cf0062b169f",
+            measurementId: "G-JBFLXGSF8F"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        let analytics;
+        (async () => {
+            try {
+                if (await isSupported()) {
+                    analytics = getAnalytics(app);
+                }
+            } catch (e) {
+                // Analytics not supported (e.g., non-HTTPS); ignore
+            }
+        })();
+
+        function track(eventName, params = {}) {
+            try {
+                if (analytics) {
+                    logEvent(analytics, eventName, params);
+                }
+            } catch (e) {
+                // swallow
+            }
+        }
+
+        // Expose a minimal tracker if needed elsewhere
+        window.solentraTrack = track;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // APK direct downloads (any anchor with download attribute pointing to .apk)
+            document.querySelectorAll('a[download][href$=\'.apk\']').forEach(a => {
+                a.addEventListener('click', () => track('apk_download_click', { href: a.href }));
+            });
+
+            // Hero CTAs
+            const packagesCta = document.querySelector('a[href="#packages"]');
+            const calculatorCta = document.querySelector('a[href="#calculator"]');
+            if (packagesCta) packagesCta.addEventListener('click', () => track('cta_click', { cta: 'view_packages' }));
+            if (calculatorCta) calculatorCta.addEventListener('click', () => track('cta_click', { cta: 'calculate_savings' }));
+
+            // Floating app download badge in hero
+            const appBadge = document.querySelector('a[href="#app-download"]');
+            if (appBadge) appBadge.addEventListener('click', () => track('cta_click', { cta: 'open_app_download' }));
+
+            // Package choose buttons
+            document.querySelectorAll('.package-card button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.package-card');
+                    const name = card?.querySelector('h3')?.textContent?.trim() || 'Unknown Package';
+                    track('package_quick_order_click', { package_name: name });
+                });
+            });
+
+            // WhatsApp modal confirm
+            const modalConfirm = document.getElementById('modalConfirm');
+            if (modalConfirm) modalConfirm.addEventListener('click', () => track('whatsapp_continue_click'));
+
+            // Contact form submit
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', () => track('contact_form_submit'));
+            }
         });
     </script>
 </body>
