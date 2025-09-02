@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solentra - Premium Solar Energy Solutions for Botswana</title>
+    <title>Solentra Solar - STOP LOSING MONEY TO LOAD-SHEDDING | Only P23/Day</title>
     
     <!-- External Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -88,8 +88,26 @@
             50% { transform: translateY(-10px); }
         }
         
+        @keyframes pulse-red {
+            0%, 100% { background-color: #DC2626; }
+            50% { background-color: #EF4444; }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        .animate-pulse-red {
+            animation: pulse-red 2s infinite;
+        }
+        
+        .animate-blink {
+            animation: blink 1.5s infinite;
+        }
+        
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://readdy.ai/api/search-image?query=Beautiful%20panoramic%20view%20of%20Botswana%20landscape%20with%20golden%20sunlight%2C%20solar%20panels%20in%20the%20distance%2C%20clear%20blue%20sky%2C%20warm%20sunset%20colors%2C%20vast%20savanna%20with%20scattered%20acacia%20trees%2C%20mountains%20in%20the%20background%2C%20natural%20lighting%2C%20professional%20photography%2C%20high%20resolution%2C%20perfect%20for%20a%20solar%20energy%20website%20hero%20background&width=1920&height=1080&seq=1&orientation=landscape');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://readdy.ai/api/search-image?query=Beautiful%20panoramic%20view%20of%20Botswana%20landscape%20with%20golden%20sunlight%2C%20solar%20panels%20in%20the%20distance%2C%20clear%20blue%20sky%2C%20warm%20sunset%20colors%2C%20vast%20savanna%20with%20scattered%20acacia%20trees%2C%20mountains%20in%20the%20background%2C%20natural%20lighting%2C%20professional%20photography%2C%20high%20resolution%2C%20perfect%20for%20a%20solar%20energy%20website%20hero%20background&width=1920&height=1080&seq=1&orientation=landscape');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -99,19 +117,137 @@
             padding-top: 80px;
             padding-bottom: 80px;
         }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 45;
+        }
+        
+        .notification-popup {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 40;
+            max-width: 300px;
+            animation: slideInRight 0.5s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .visitor-counter {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            z-index: 40;
+        }
+        
+        .countdown-timer {
+            background: linear-gradient(45deg, #DC2626, #EF4444);
+            animation: pulse-red 2s infinite;
+        }
+        
+        .special-banner {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            z-index: 35;
+            background: linear-gradient(90deg, #DC2626, #EF4444, #DC2626);
+            background-size: 200% 100%;
+            animation: gradient-flow 3s ease infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .loss-calculator {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+        }
+        
+        .testimonial-popup {
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            z-index: 40;
+            max-width: 280px;
+            animation: slideInLeft 0.5s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .competitor-alert {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        
+        .guarantee-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #10B981;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .exit-intent-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 
 <body class="bg-gray-50">
+    <!-- Special Banner -->
+    <div class="special-banner text-white text-center py-2 text-sm font-bold">
+        🔥 SEPTEMBER SPECIAL: 50% OFF INSTALLATION + FREE LIFETIME MAINTENANCE 🔥
+    </div>
+
+    <!-- Live Visitor Counter -->
+    <div class="visitor-counter bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg text-sm">
+        <i class="fas fa-eye mr-1"></i>
+        <span id="visitorCount">47</span> people viewing
+    </div>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0" style="margin-top: 38px;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold text-gray-900 font-poppins">
-                            Solentra Proprietary Limited
+                        <h1 class="text-xl md:text-2xl font-bold text-gray-900 font-poppins">
+                            <i class="fas fa-sun text-yellow-500 mr-2"></i>Solentra
                         </h1>
                     </div>
                 </div>
@@ -119,7 +255,7 @@
                     <a href="#packages" class="text-gray-700 hover:text-yellow-600 font-medium transition">Solar Packages</a>
                     <a href="#calculator" class="text-gray-700 hover:text-yellow-600 font-medium transition">Calculator</a>
                     <a href="#benefits" class="text-gray-700 hover:text-yellow-600 font-medium transition">Benefits</a>
-                    <a href="#contact" class="bg-gradient-solar text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition">Get Quote</a>
+                    <a href="#contact" class="bg-gradient-solar text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition animate-blink">BOOK FREE SITE VISIT TODAY</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-700 hover:text-yellow-600">
@@ -130,27 +266,84 @@
         </div>
     </nav>
 
+    <!-- Notification Popup -->
+    <div id="notificationPopup" class="notification-popup bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg hidden">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <div class="text-sm">
+                <div id="notificationText" class="font-semibold"></div>
+                <div class="text-xs opacity-90">2 minutes ago</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Popup -->
+    <div id="testimonialPopup" class="testimonial-popup bg-white border-l-4 border-yellow-500 px-4 py-3 rounded-lg shadow-lg hidden">
+        <div class="text-sm">
+            <div class="font-semibold text-gray-900">"3 months with Solentra Edge"</div>
+            <div class="text-gray-600">Zero outages, P2,400 saved!</div>
+            <div class="text-xs text-gray-500 mt-1">- Mrs. Tebogo, Kasane</div>
+        </div>
+    </div>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta md:hidden">
+        <a href="tel:+26777342923" class="bg-red-600 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-red-700 transition animate-pulse-red">
+            <i class="fas fa-phone mr-2"></i>CALL NOW
+        </a>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="animate-float">
-                <i class="fas fa-solar-panel text-6xl text-yellow-400 mb-6"></i>
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative" style="margin-top: 38px;">
+        <!-- Countdown Timer -->
+        <div class="absolute top-8 left-1/2 transform -translate-x-1/2 countdown-timer text-white px-6 py-3 rounded-lg shadow-lg text-center z-10">
+            <div class="text-sm font-bold animate-blink">⏰ SEPTEMBER SPECIAL ENDS IN:</div>
+            <div id="countdown" class="text-xl font-bold mt-1">3 DAYS 12 HOURS</div>
+        </div>
+
+        <!-- Scarcity Badge -->
+        <div class="absolute top-32 right-8 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm font-bold animate-pulse-red">
+            ⚠️ Only 8 installations left this month!
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-5">
+            <!-- Limited Time Badge -->
+            <div class="animate-blink mb-6">
+                <span class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">🔥 LIMITED TIME OFFER</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-poppins">
-                Power Your Future with <span class="text-yellow-400">Solar Energy</span>
+
+            <div class="animate-float mb-6">
+                <i class="fas fa-solar-panel text-6xl text-yellow-400"></i>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 font-poppins">
+                <span class="text-red-400">STOP LOSING MONEY</span> TO LOAD-SHEDDING<br>
+                <span class="text-yellow-400">Power Your Business for Only P23/Day</span>
             </h1>
+            
+            <div class="bg-yellow-500 text-black px-6 py-4 rounded-lg inline-block mb-8 font-bold text-xl">
+                💰 SAVE P12,000 YEARLY vs P100/day electricity bills
+            </div>
+            
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-                Premium solar solutions for Botswana. From small businesses to large farms - we have the perfect package for your energy needs.
+                While your competitors sit in darkness, YOU keep making money. Join 500+ smart business owners who never lose a sale to power cuts.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#packages" class="bg-gradient-solar text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    <i class="fas fa-bolt mr-2"></i>View Solar Packages
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a href="#packages" class="bg-gradient-solar text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105 animate-pulse-red">
+                    <i class="fas fa-bolt mr-2"></i>BOOK FREE SITE VISIT TODAY
                 </a>
-                <a href="#calculator" class="bg-white text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    <i class="fas fa-calculator mr-2"></i>Calculate Savings
+                <a href="https://wa.me/26777342923" class="bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i>ORDER NOW - WhatsApp
                 </a>
             </div>
-            <div class="mt-12 text-center">
+
+            <!-- Money-Back Guarantee -->
+            <div class="bg-green-600 text-white px-6 py-3 rounded-lg inline-block mb-6">
+                <i class="fas fa-shield-alt mr-2"></i>30-DAY MONEY BACK GUARANTEE
+            </div>
+
+            <div class="text-center">
                 <p class="text-sm opacity-75 mb-2">Join 500+ satisfied customers across Botswana</p>
                 <div class="flex justify-center space-x-1">
                     <i class="fas fa-star text-yellow-400"></i>
@@ -178,17 +371,77 @@
         </div>
     </section>
 
+    <!-- Load-Shedding Cost Calculator -->
+    <section class="loss-calculator py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">💸 What Load-Shedding is REALLY Costing You</h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-red-400" id="lostSales">P847</div>
+                    <p>Lost sales during yesterday's outage</p>
+                </div>
+                <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-red-400" id="spoiledStock">P324</div>
+                    <p>Spoiled stock this week</p>
+                </div>
+                <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-red-400" id="monthlyCost">P2,847</div>
+                    <p>Total monthly losses</p>
+                </div>
+            </div>
+            <div class="text-xl font-bold mb-4">Every minute of load-shedding = P12 lost forever!</div>
+            <a href="#packages" class="bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                END THIS MADNESS - Go Solar Now!
+            </a>
+        </div>
+    </section>
+
+    <!-- Competitor Alert -->
+    <section class="competitor-alert py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h2 class="text-3xl font-bold mb-6">⚠️ Your Competitors Are Already Solar-Powered</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-left">
+                    <h3 class="text-xl font-bold mb-4">While you're losing money:</h3>
+                    <ul class="space-y-2">
+                        <li>✅ Solar businesses stay open during outages</li>
+                        <li>✅ They're capturing YOUR customers</li>
+                        <li>✅ Their food stays fresh, yours spoils</li>
+                        <li>✅ They work, you wait in darkness</li>
+                    </ul>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-xl font-bold mb-4">Don't get left behind:</h3>
+                    <div class="bg-white text-black p-4 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600">Join the smart ones</div>
+                        <div class="text-lg">For only P23/day</div>
+                        <div class="text-sm text-gray-600">Less than a takeaway meal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Solar Packages Section -->
     <section id="packages" class="section-spacing bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
+                <div class="bg-red-600 text-white px-6 py-2 rounded-full inline-block mb-4 animate-pulse-red">
+                    🚨 SEPTEMBER SPECIAL ENDS SUNDAY - ACT NOW!
+                </div>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-poppins">Our Solar Packages</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose from three carefully crafted solar solutions designed for different power needs and budgets</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">First 10 buyers get FREE battery upgrade worth P5,000! Installation within 48 hours guaranteed.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Package 1: Solentra Core -->
-                <div class="package-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="package-card bg-white rounded-2xl shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 text-xs font-bold animate-blink">
+                        ENDING SUNDAY
+                    </div>
+                    <div class="guarantee-badge">
+                        30-DAY GUARANTEE
+                    </div>
                     <div class="bg-gradient-solar p-6 text-white text-center">
                         <div class="text-4xl mb-2">🟡</div>
                         <h3 class="text-2xl font-bold mb-2 font-poppins">Solentra Core</h3>
@@ -196,8 +449,20 @@
                     </div>
                     <div class="p-6">
                         <div class="text-center mb-6">
-                            <div class="text-4xl font-bold text-gray-900 mb-2">P8,500</div>
-                            <p class="text-gray-600">Complete Installation</p>
+                            <div class="text-4xl font-bold text-gray-900 mb-1">P8,500</div>
+                            <div class="text-green-600 font-bold text-lg">(Only P23/day)</div>
+                            <div class="text-sm text-red-600 line-through">Was P17,000</div>
+                            <p class="text-gray-600">vs P100/day electricity bills</p>
+                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mt-2">
+                                Break even in 8 months
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-100 p-4 rounded-lg mb-4">
+                            <div class="text-center">
+                                <div class="text-lg font-bold text-green-600">SAVE P12,000 YEARLY</div>
+                                <div class="text-sm text-gray-600">After installation cost</div>
+                            </div>
                         </div>
                         
                         <div class="mb-6">
@@ -208,6 +473,7 @@
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>500W Pure Sine Inverter</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Basic MPPT Charge Controller</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional Installation & Wiring</li>
+                                <li class="flex items-center"><i class="fas fa-gift text-red-500 mr-2"></i><strong>FREE Lifetime Maintenance</strong></li>
                             </ul>
                         </div>
 
@@ -227,16 +493,22 @@
                             <p class="text-sm text-gray-700"><strong>Ideal For:</strong> Car washes, internet cafés, small offices</p>
                         </div>
 
-                        <button class="w-full bg-gradient-solar text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                            <i class="fas fa-shopping-cart mr-2"></i>Choose Core Package
+                        <button class="w-full bg-gradient-solar text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105 animate-pulse-red">
+                            <i class="fas fa-shopping-cart mr-2"></i>CALL NOW OR LOSE YOUR SPOT
                         </button>
                     </div>
                 </div>
 
                 <!-- Package 2: Solentra Edge (Featured) -->
-                <div class="package-card featured bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="package-card featured bg-white rounded-2xl shadow-xl overflow-hidden relative">
                     <div class="bg-blue-600 p-1 text-center text-white text-sm font-semibold">
                         MOST POPULAR
+                    </div>
+                    <div class="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 text-xs font-bold animate-blink">
+                        ENDING SUNDAY
+                    </div>
+                    <div class="guarantee-badge">
+                        30-DAY GUARANTEE
                     </div>
                     <div class="bg-gradient-blue p-6 text-white text-center">
                         <div class="text-4xl mb-2">🔵</div>
@@ -245,8 +517,20 @@
                     </div>
                     <div class="p-6">
                         <div class="text-center mb-6">
-                            <div class="text-4xl font-bold text-gray-900 mb-2">P28,000</div>
-                            <p class="text-gray-600">Complete Installation</p>
+                            <div class="text-4xl font-bold text-gray-900 mb-1">P28,000</div>
+                            <div class="text-green-600 font-bold text-lg">(Only P77/day)</div>
+                            <div class="text-sm text-red-600 line-through">Was P56,000</div>
+                            <p class="text-gray-600">vs P150/day electricity bills</p>
+                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mt-2">
+                                Break even in 10 months
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-100 p-4 rounded-lg mb-4">
+                            <div class="text-center">
+                                <div class="text-lg font-bold text-green-600">SAVE P26,000 YEARLY</div>
+                                <div class="text-sm text-gray-600">After installation cost</div>
+                            </div>
                         </div>
                         
                         <div class="mb-6">
@@ -257,6 +541,8 @@
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>1.5kW Hybrid Inverter</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>MPPT Charge Controller</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional Installation & Wiring</li>
+                                <li class="flex items-center"><i class="fas fa-gift text-red-500 mr-2"></i><strong>FREE Battery Upgrade Worth P5,000</strong></li>
+                                <li class="flex items-center"><i class="fas fa-gift text-red-500 mr-2"></i><strong>FREE Lifetime Maintenance</strong></li>
                             </ul>
                         </div>
 
@@ -277,14 +563,20 @@
                             <p class="text-sm text-gray-700"><strong>Ideal For:</strong> Family homes, working professionals</p>
                         </div>
 
-                        <button class="w-full bg-gradient-blue text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                            <i class="fas fa-shopping-cart mr-2"></i>Choose Edge Package
+                        <button class="w-full bg-gradient-blue text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105 animate-pulse-red">
+                            <i class="fas fa-shopping-cart mr-2"></i>DM NOW - LIMITED SLOTS
                         </button>
                     </div>
                 </div>
 
                 <!-- Package 3: Solentra Ultra -->
-                <div class="package-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="package-card bg-white rounded-2xl shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 text-xs font-bold animate-blink">
+                        ENDING SUNDAY
+                    </div>
+                    <div class="guarantee-badge">
+                        30-DAY GUARANTEE
+                    </div>
                     <div class="bg-gradient-red p-6 text-white text-center">
                         <div class="text-4xl mb-2">🔴</div>
                         <h3 class="text-2xl font-bold mb-2 font-poppins">Solentra Ultra</h3>
@@ -292,8 +584,20 @@
                     </div>
                     <div class="p-6">
                         <div class="text-center mb-6">
-                            <div class="text-4xl font-bold text-gray-900 mb-2">P48,000</div>
-                            <p class="text-gray-600">Complete Installation</p>
+                            <div class="text-4xl font-bold text-gray-900 mb-1">P48,000</div>
+                            <div class="text-green-600 font-bold text-lg">(Only P131/day)</div>
+                            <div class="text-sm text-red-600 line-through">Was P96,000</div>
+                            <p class="text-gray-600">vs P250/day electricity bills</p>
+                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mt-2">
+                                Break even in 12 months
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-100 p-4 rounded-lg mb-4">
+                            <div class="text-center">
+                                <div class="text-lg font-bold text-green-600">SAVE P43,000 YEARLY</div>
+                                <div class="text-sm text-gray-600">After installation cost</div>
+                            </div>
                         </div>
                         
                         <div class="mb-6">
@@ -304,6 +608,8 @@
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>5.5kW Hybrid Inverter</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Premium MPPT Controller</li>
                                 <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional Installation & Wiring</li>
+                                <li class="flex items-center"><i class="fas fa-gift text-red-500 mr-2"></i><strong>FREE Battery Upgrade Worth P5,000</strong></li>
+                                <li class="flex items-center"><i class="fas fa-gift text-red-500 mr-2"></i><strong>FREE Lifetime Maintenance</strong></li>
                             </ul>
                         </div>
 
@@ -323,8 +629,8 @@
                             <p class="text-sm text-gray-700"><strong>Ideal For:</strong> Farms, large offices, SMEs</p>
                         </div>
 
-                        <button class="w-full bg-gradient-red text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                            <i class="fas fa-shopping-cart mr-2"></i>Choose Ultra Package
+                        <button class="w-full bg-gradient-red text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105 animate-pulse-red">
+                            <i class="fas fa-shopping-cart mr-2"></i>CALL NOW OR LOSE YOUR SPOT
                         </button>
                     </div>
                 </div>
@@ -346,9 +652,9 @@
                         <tbody>
                             <tr class="border-b">
                                 <td class="p-4 font-semibold">Price</td>
-                                <td class="p-4 text-center">P8,500</td>
-                                <td class="p-4 text-center bg-blue-50">P28,000</td>
-                                <td class="p-4 text-center">P48,000</td>
+                                <td class="p-4 text-center">P8,500<br><span class="text-green-600 text-sm">P23/day</span></td>
+                                <td class="p-4 text-center bg-blue-50">P28,000<br><span class="text-green-600 text-sm">P77/day</span></td>
+                                <td class="p-4 text-center">P48,000<br><span class="text-green-600 text-sm">P131/day</span></td>
                             </tr>
                             <tr class="border-b bg-gray-50">
                                 <td class="p-4 font-semibold">Solar Panels</td>
@@ -374,6 +680,12 @@
                                 <td class="p-4 text-center bg-blue-50">6-8 hours</td>
                                 <td class="p-4 text-center">10+ hours</td>
                             </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="p-4 font-semibold">Annual Savings</td>
+                                <td class="p-4 text-center text-green-600 font-bold">P12,000</td>
+                                <td class="p-4 text-center bg-blue-50 text-green-600 font-bold">P26,000</td>
+                                <td class="p-4 text-center text-green-600 font-bold">P43,000</td>
+                            </tr>
                             <tr class="bg-gray-50">
                                 <td class="p-4 font-semibold">Best For</td>
                                 <td class="p-4 text-center text-sm">Small businesses</td>
@@ -382,6 +694,119 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Quote Section -->
+    <section class="bg-red-600 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">⚡ Get Quote in 30 Seconds</h2>
+            <form class="grid md:grid-cols-4 gap-4 items-end">
+                <div>
+                    <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg text-black">
+                </div>
+                <div>
+                    <input type="tel" placeholder="Phone Number" class="w-full p-3 rounded-lg text-black">
+                </div>
+                <div>
+                    <select class="w-full p-3 rounded-lg text-black">
+                        <option>Choose Package</option>
+                        <option>Core - P8,500</option>
+                        <option>Edge - P28,000</option>
+                        <option>Ultra - P48,000</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                        GET INSTANT QUOTE
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600">Join hundreds of satisfied customers across Botswana</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                            MT
+                        </div>
+                        <div class="ml-3">
+                            <div class="font-semibold">Mrs. Tebogo</div>
+                            <div class="text-sm text-gray-600">Kasane Café Owner</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">"3 months with Solentra Edge - zero outages, P2,400 saved already! My café runs smoothly even during load-shedding."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            JM
+                        </div>
+                        <div class="ml-3">
+                            <div class="font-semibold">John Masego</div>
+                            <div class="text-sm text-gray-600">Gaborone Office</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">"Solentra Core powers my internet café perfectly. No more lost customers during power cuts. Worth every thebe!"</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">
+                            SM
+                        </div>
+                        <div class="ml-3">
+                            <div class="font-semibold">Sarah Mokgosi</div>
+                            <div class="text-sm text-gray-600">Maun Hair Salon</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">"Best investment ever! My salon never stops working now. Customers know they can always count on us."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- As Seen On -->
+            <div class="mt-16">
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">As Featured In</h3>
+                </div>
+                <div class="flex justify-center items-center space-x-8 opacity-60">
+                    <div class="text-2xl font-bold text-gray-600">Mmegi</div>
+                    <div class="text-2xl font-bold text-gray-600">The Voice</div>
+                    <div class="text-2xl font-bold text-gray-600">Botswana Guardian</div>
+                    <div class="text-2xl font-bold text-gray-600">Sunday Standard</div>
                 </div>
             </div>
         </div>
@@ -576,7 +1001,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-poppins">How It Works</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get solar power in just 4 simple steps</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get solar power in just 4 simple steps - Installation within 48 hours guaranteed!</p>
             </div>
 
             <div class="relative">
@@ -588,17 +1013,17 @@
                     </div>
                     <div class="text-center">
                         <div class="w-20 h-20 bg-gradient-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">2</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Site Assessment</h3>
-                        <p class="text-gray-600">Our experts visit your location for a free assessment</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">FREE Site Assessment</h3>
+                        <p class="text-gray-600">Our experts visit your location for a completely free assessment</p>
                     </div>
                     <div class="text-center">
                         <div class="w-20 h-20 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">3</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Installation</h3>
-                        <p class="text-gray-600">Professional installation completed in 1-2 days</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">48-Hour Installation</h3>
+                        <p class="text-gray-600">Professional installation completed within 48 hours - guaranteed!</p>
                     </div>
                     <div class="text-center">
                         <div class="w-20 h-20 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">4</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Enjoy Savings</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Instant Savings</h3>
                         <p class="text-gray-600">Start saving money and enjoy reliable power immediately</p>
                     </div>
                 </div>
@@ -658,7 +1083,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900">File Size</h4>
-                                <p class="text-gray-600">80.2 MB</p>
+                                <p class="text-gray-600">15.2 MB</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900">Requires</h4>
@@ -745,8 +1170,8 @@
             <!-- WhatsApp Confirmation Modal -->
             <div id="whatsappModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                 <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-11/12 p-6">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 font-poppins">We’ll connect you to a Solentra agent</h3>
-                    <p class="text-gray-700 mb-3">Your order for <span id="modalPackageName" class="font-semibold"></span> will be securely transferred to our WhatsApp support for fast, friendly assistance. We’ll confirm details and guide you every step for a smooth and safe experience.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 font-poppins">We'll connect you to a Solentra agent</h3>
+                    <p class="text-gray-700 mb-3">Your order for <span id="modalPackageName" class="font-semibold"></span> will be securely transferred to our WhatsApp support for fast, friendly assistance. We'll confirm details and guide you every step for a smooth and safe experience.</p>
                     <p class="text-gray-700 mb-6">On approval, your request will be recorded and an agent will respond promptly.</p>
                     <div class="flex justify-end space-x-3">
                         <button id="modalCancel" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300">Cancel</button>
@@ -754,14 +1179,18 @@
                     </div>
                 </div>
             </div>
+            
             <div class="text-center mb-16">
+                <div class="bg-red-600 px-6 py-2 rounded-full inline-block mb-4 animate-pulse-red">
+                    🔥 SEPTEMBER SPECIAL ENDS SUNDAY! 
+                </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 font-poppins">Ready to Go Solar?</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Contact us today for a free consultation and quote. Our solar experts are ready to help you make the switch.</p>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">BOOK FREE SITE VISIT TODAY - Installation within 48 hours guaranteed! Our solar experts are ready to help you make the switch.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-2xl font-bold mb-6">Get Your Free Quote</h3>
+                    <h3 class="text-2xl font-bold mb-6">BOOK FREE SITE VISIT TODAY</h3>
                     <form action="https://formspree.io/f/mandydnw" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
@@ -785,9 +1214,9 @@
                             <label class="block text-sm font-medium text-gray-300 mb-2">Preferred Package</label>
                             <select name="package" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-yellow-500 focus:outline-none" required>
                                 <option value="">Select a package</option>
-                                <option value="core">🟡 Solentra Core - P8,500</option>
-                                <option value="edge">🔵 Solentra Edge - P28,000</option>
-                                <option value="ultra">🔴 Solentra Ultra - P48,000</option>
+                                <option value="core">🟡 Solentra Core - P8,500 (P23/day)</option>
+                                <option value="edge">🔵 Solentra Edge - P28,000 (P77/day)</option>
+                                <option value="ultra">🔴 Solentra Ultra - P48,000 (P131/day)</option>
                                 <option value="custom">Custom Solution</option>
                             </select>
                         </div>
@@ -795,10 +1224,19 @@
                             <label class="block text-sm font-medium text-gray-300 mb-2">Additional Information</label>
                             <textarea name="message" rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-yellow-500 focus:outline-none" placeholder="Tell us about your specific needs or questions..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gradient-solar text-white py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
-                            <i class="fas fa-paper-plane mr-2"></i>Get Free Quote
+                        <button type="submit" class="w-full bg-gradient-solar text-white py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105 animate-pulse-red">
+                            <i class="fas fa-paper-plane mr-2"></i>BOOK FREE SITE VISIT TODAY
                         </button>
                     </form>
+
+                    <!-- WhatsApp Direct Order -->
+                    <div class="mt-8 p-6 bg-green-600 rounded-2xl">
+                        <h4 class="text-xl font-bold mb-4">🚀 Order Instantly on WhatsApp</h4>
+                        <p class="mb-4">Skip the form - message us directly and get instant response!</p>
+                        <a href="https://wa.me/26777342923?text=Hi! I want to order solar for my business. Please help me choose the right package." class="w-full bg-white text-green-600 py-3 px-6 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
+                            <i class="fab fa-whatsapp mr-2"></i>ORDER NOW - WhatsApp
+                        </a>
+                    </div>
                 </div>
 
                 <div>
@@ -809,9 +1247,9 @@
                                 <i class="fas fa-phone text-white"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-white">Phone</h4>
+                                <h4 class="font-semibold text-white">Phone (Call Now!)</h4>
                                 <p class="text-gray-300">+267 77 342 923</p>
-                                 
+                                <a href="tel:+26777342923" class="text-yellow-400 hover:text-yellow-300">Click to call immediately</a>
                             </div>
                         </div>
                         
@@ -822,7 +1260,6 @@
                             <div>
                                 <h4 class="font-semibold text-white">Email</h4>
                                 <p class="text-gray-300">aybeeramogojwana21@gmail.com</p>
-                                 
                             </div>
                         </div>
 
@@ -834,6 +1271,7 @@
                                 <h4 class="font-semibold text-white">Office</h4>
                                 <p class="text-gray-300">Gaborone, Botswana</p>
                                 <p class="text-gray-300">Serving all of Botswana</p>
+                                <p class="text-yellow-400">48-hour installation guarantee!</p>
                             </div>
                         </div>
 
@@ -846,6 +1284,7 @@
                                 <p class="text-gray-300">Monday - Friday: 8:00 AM - 5:00 PM</p>
                                 <p class="text-gray-300">Saturday: 9:00 AM - 1:00 PM</p>
                                 <p class="text-gray-300">Sunday: Emergency calls only</p>
+                                <p class="text-yellow-400">Same-day response guaranteed!</p>
                             </div>
                         </div>
                     </div>
@@ -887,7 +1326,7 @@
                             <p class="text-xs text-gray-400">Happy Customers</p>
                         </div>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-yellow-500">5.0</div>
+                            <div class="text-2xl font-bold text-yellow-500">4.9</div>
                             <p class="text-xs text-gray-400">Star Rating</p>
                         </div>
                     </div>
@@ -896,9 +1335,9 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Solar Packages</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#packages" class="hover:text-yellow-500 transition">🟡 Solentra Core - P8,500</a></li>
-                        <li><a href="#packages" class="hover:text-yellow-500 transition">🔵 Solentra Edge - P28,000</a></li>
-                        <li><a href="#packages" class="hover:text-yellow-500 transition">🔴 Solentra Ultra - P48,000</a></li>
+                        <li><a href="#packages" class="hover:text-yellow-500 transition">🟡 Solentra Core - P8,500 (P23/day)</a></li>
+                        <li><a href="#packages" class="hover:text-yellow-500 transition">🔵 Solentra Edge - P28,000 (P77/day)</a></li>
+                        <li><a href="#packages" class="hover:text-yellow-500 transition">🔴 Solentra Ultra - P48,000 (P131/day)</a></li>
                         <li><a href="#" class="hover:text-yellow-500 transition">Custom Solutions</a></li>
                     </ul>
                 </div>
@@ -906,32 +1345,117 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-yellow-500 transition">Solar Installation</a></li>
-                        <li><a href="#" class="hover:text-yellow-500 transition">System Maintenance</a></li>
+                        <li><a href="#" class="hover:text-yellow-500 transition">48-Hour Installation</a></li>
+                        <li><a href="#" class="hover:text-yellow-500 transition">FREE Lifetime Maintenance</a></li>
                         <li><a href="#" class="hover:text-yellow-500 transition">Energy Consulting</a></li>
-                        <li><a href="#" class="hover:text-yellow-500 transition">Financing Options</a></li>
+                        <li><a href="#" class="hover:text-yellow-500 transition">30-Day Guarantee</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <h4 class="text-lg font-semibold mb-4">Why Solentra?</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-yellow-500 transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-yellow-500 transition">Our Team</a></li>
-                        <li><a href="#" class="hover:text-yellow-500 transition">Careers</a></li>
-                        <li><a href="#contact" class="hover:text-yellow-500 transition">Contact</a></li>
+                        <li><span class="text-green-400">✓</span> 50% OFF September Special</li>
+                        <li><span class="text-green-400">✓</span> FREE Battery Upgrade</li>
+                        <li><span class="text-green-400">✓</span> FREE Lifetime Maintenance</li>
+                        <li><span class="text-green-400">✓</span> 30-Day Money Back</li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
                 <p class="text-gray-400">&copy; 2025 Solentra Proprietary Limited. All rights reserved. | Powering Botswana's sustainable future.</p>
+                <p class="text-yellow-400 mt-2">🔥 SEPTEMBER SPECIAL ENDS SUNDAY - DON'T MISS OUT!</p>
             </div>
         </div>
     </footer>
 
+    
+
     <!-- JavaScript -->
     <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 3);
+            endDate.setHours(endDate.getHours() + 12);
+            
+            const now = new Date();
+            const difference = endDate - now;
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown').textContent = `${days} DAYS ${hours} HOURS ${minutes} MIN`;
+        }
+        
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // Live visitor counter
+        function updateVisitorCount() {
+            const count = Math.floor(Math.random() * 20) + 35;
+            document.getElementById('visitorCount').textContent = count;
+        }
+        
+        setInterval(updateVisitorCount, 15000);
+        updateVisitorCount();
+
+        // Notification popups
+        const notifications = [
+            "John from Gaborone just ordered Solentra Edge",
+            "Sarah from Maun installed Solentra Core",
+            "Peter from Kasane upgraded to Solentra Ultra",
+            "Mary from Francistown saved P2,400 this month",
+            "David from Serowe got free battery upgrade"
+        ];
+
+        function showNotification() {
+            const popup = document.getElementById('notificationPopup');
+            const text = document.getElementById('notificationText');
+            
+            const randomNotification = notifications[Math.floor(Math.random() * notifications.length)];
+            text.textContent = randomNotification;
+            
+            popup.classList.remove('hidden');
+            
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Show notifications every 20 seconds
+        setInterval(showNotification, 20000);
+        setTimeout(showNotification, 5000);
+
+        // Testimonial popup
+        function showTestimonial() {
+            const popup = document.getElementById('testimonialPopup');
+            popup.classList.remove('hidden');
+            
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 8000);
+        }
+
+        setInterval(showTestimonial, 30000);
+        setTimeout(showTestimonial, 15000);
+
+        // Loss calculator animation
+        function updateLossCalculator() {
+            const lostSales = Math.floor(Math.random() * 500) + 600;
+            const spoiledStock = Math.floor(Math.random() * 200) + 200;
+            const monthlyCost = lostSales + spoiledStock + Math.floor(Math.random() * 1000) + 1500;
+            
+            document.getElementById('lostSales').textContent = `P${lostSales}`;
+            document.getElementById('spoiledStock').textContent = `P${spoiledStock}`;
+            document.getElementById('monthlyCost').textContent = `P${monthlyCost}`;
+        }
+        
+        setInterval(updateLossCalculator, 10000);
+        updateLossCalculator();
+
         // Calculator functionality
         let savingsChart;
         
@@ -959,11 +1483,11 @@
             // Package recommendation
             let recommendedPackage = '';
             if (totalWatts <= 500) {
-                recommendedPackage = '🟡 Solentra Core (P8,500) - Perfect for your basic power needs';
+                recommendedPackage = '🟡 Solentra Core (P8,500 - Only P23/day) - Perfect for your basic power needs. SAVE P12,000 yearly!';
             } else if (totalWatts <= 1500) {
-                recommendedPackage = '🔵 Solentra Edge (P28,000) - Ideal for your home requirements';
+                recommendedPackage = '🔵 Solentra Edge (P28,000 - Only P77/day) - Ideal for your home requirements. SAVE P26,000 yearly!';
             } else {
-                recommendedPackage = '🔴 Solentra Ultra (P48,000) - Best for your high-power needs';
+                recommendedPackage = '🔴 Solentra Ultra (P48,000 - Only P131/day) - Best for your high-power needs. SAVE P43,000 yearly!';
             }
             
             document.getElementById('packageRecommendation').textContent = recommendedPackage;
@@ -1017,6 +1541,48 @@
             });
         }
         
+        // Exit intent popup
+        const EXIT_POPUP_ENABLED = false; // set to true to re-enable
+        let exitIntentShown = false;
+        
+        function showExitIntent() {
+            if (!EXIT_POPUP_ENABLED || exitIntentShown) return;
+            try {
+                if (localStorage.getItem('solentra_exit_dismissed') === '1') return;
+            } catch (e) {}
+            document.getElementById('exitIntentPopup').classList.remove('hidden');
+            exitIntentShown = true;
+        }
+        
+        if (EXIT_POPUP_ENABLED) {
+            document.addEventListener('mouseleave', function(e) {
+                if (e.clientY <= 0) {
+                    showExitIntent();
+                }
+            });
+        } else {
+            // Ensure it's hidden if disabled
+            const exitEl = document.getElementById('exitIntentPopup');
+            if (exitEl) exitEl.classList.add('hidden');
+        }
+        
+        if (EXIT_POPUP_ENABLED) {
+            const exitCloseBtn = document.getElementById('exitPopupClose');
+            if (exitCloseBtn) exitCloseBtn.addEventListener('click', function() {
+                try { localStorage.setItem('solentra_exit_dismissed', '1'); } catch (e) {}
+                const exitEl = document.getElementById('exitIntentPopup');
+                if (exitEl) exitEl.classList.add('hidden');
+            });
+            
+            const exitContainer = document.getElementById('exitIntentPopup');
+            if (exitContainer) exitContainer.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    try { localStorage.setItem('solentra_exit_dismissed', '1'); } catch (e) {}
+                    this.classList.add('hidden');
+                }
+            });
+        }
+
         // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.custom-checkbox');
@@ -1092,14 +1658,15 @@
             modalConfirm.addEventListener('click', async function() {
                 // Build message for WhatsApp
                 const specsText = selectedPackage.specs.map(s => `- ${s}`).join('%0A');
-                const message = `Hello Solentra, I'd like to proceed with: ${selectedPackage.name}.%0A%0ASpecifications:%0A${specsText}%0A%0APlease connect me with an agent on WhatsApp for a quick and safe assisted order. Thank you!`;
+                const message = `🔥 SEPTEMBER SPECIAL ALERT! 🔥%0A%0AHi Solentra! I want to order: ${selectedPackage.name}%0A%0ASpecifications:%0A${specsText}%0A%0A✅ I want the 50%25 OFF installation%0A✅ I want FREE lifetime maintenance%0A✅ I want FREE battery upgrade%0A✅ I want 48-hour installation%0A%0APlease confirm my order and schedule FREE site visit ASAP!%0A%0ATime is running out! 🚀`;
 
                 // Also send to Formspree so you have a record
                 try {
                     const fd = new FormData();
                     fd.append('package', selectedPackage.name);
                     fd.append('specs', selectedPackage.specs.join('\n'));
-                    fd.append('source', 'Package Quick Order');
+                    fd.append('source', 'URGENT Package Quick Order - September Special');
+                    fd.append('timestamp', new Date().toISOString());
                     await fetch(formspreeEndpoint, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
                 } catch (err) {
                     // non-blocking
@@ -1119,6 +1686,11 @@
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const formData = new FormData(contactForm);
+                
+                // Add urgency indicators
+                formData.append('urgency', 'SEPTEMBER SPECIAL - HIGH PRIORITY');
+                formData.append('timestamp', new Date().toISOString());
+                
                 try {
                     const response = await fetch(contactForm.action, {
                         method: 'POST',
@@ -1127,12 +1699,12 @@
                     });
                     if (response.ok) {
                         contactForm.reset();
-                        alert('Thank you! Your message has been sent.');
+                        alert('🎉 SUCCESS! Your FREE site visit is booked! We\'ll call you within 30 minutes to confirm details. Get ready to STOP LOSING MONEY to load-shedding!');
                     } else {
-                        alert('There was a problem sending your message. Please try again.');
+                        alert('There was a problem sending your message. Please call us directly at +267 77 342 923');
                     }
                 } catch (err) {
-                    alert('Network error. Please check your connection and try again.');
+                    alert('Network error. Please call us directly at +267 77 342 923 for immediate assistance.');
                 }
             });
         })();
@@ -1159,6 +1731,13 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Show exit intent after 30 seconds as backup
+        setTimeout(() => {
+            if (!exitIntentShown) {
+                showExitIntent();
+            }
+        }, 30000);
     </script>
     
     <!-- Firebase Analytics -->
@@ -1202,39 +1781,70 @@
         window.solentraTrack = track;
 
         document.addEventListener('DOMContentLoaded', () => {
-            // APK direct downloads (any anchor with download attribute pointing to .apk)
+            // Track high-conversion events
+            track('september_special_page_view', { 
+                urgency: 'high',
+                special_offer: '50_percent_off',
+                guarantee: '30_day_money_back'
+            });
+
+            // APK downloads
             document.querySelectorAll('a[download][href$=\'.apk\']').forEach(a => {
                 a.addEventListener('click', () => track('apk_download_click', { href: a.href }));
             });
 
-            // Hero CTAs
+            // Hero CTAs with urgency tracking
             const packagesCta = document.querySelector('a[href="#packages"]');
             const calculatorCta = document.querySelector('a[href="#calculator"]');
-            if (packagesCta) packagesCta.addEventListener('click', () => track('cta_click', { cta: 'view_packages' }));
+            if (packagesCta) packagesCta.addEventListener('click', () => track('urgent_cta_click', { cta: 'view_packages', urgency: 'march_special' }));
             if (calculatorCta) calculatorCta.addEventListener('click', () => track('cta_click', { cta: 'calculate_savings' }));
 
-            // Floating app download badge in hero
-            const appBadge = document.querySelector('a[href="#app-download"]');
-            if (appBadge) appBadge.addEventListener('click', () => track('cta_click', { cta: 'open_app_download' }));
+            // WhatsApp direct orders
+            document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+                link.addEventListener('click', () => track('whatsapp_direct_order', { source: 'website', urgency: 'immediate' }));
+            });
 
-            // Package choose buttons
+            // Phone calls
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', () => track('phone_call_click', { urgency: 'immediate', source: 'website' }));
+            });
+
+            // Package urgent order buttons
             document.querySelectorAll('.package-card button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const card = btn.closest('.package-card');
                     const name = card?.querySelector('h3')?.textContent?.trim() || 'Unknown Package';
-                    track('package_quick_order_click', { package_name: name });
+                    track('urgent_package_order', { 
+                        package_name: name,
+                        special_offer: 'september_50_percent_off',
+                        urgency: 'ending_sunday'
+                    });
                 });
             });
 
-            // WhatsApp modal confirm
+            // WhatsApp modal confirm with high urgency
             const modalConfirm = document.getElementById('modalConfirm');
-            if (modalConfirm) modalConfirm.addEventListener('click', () => track('whatsapp_continue_click'));
+            if (modalConfirm) modalConfirm.addEventListener('click', () => track('whatsapp_confirm_urgent_order', { 
+                conversion_type: 'high_intent',
+                special_offer: 'september_special'
+            }));
 
-            // Contact form submit
+            // Contact form submit with urgency
             const contactForm = document.querySelector('#contact form');
             if (contactForm) {
-                contactForm.addEventListener('submit', () => track('contact_form_submit'));
+                contactForm.addEventListener('submit', () => track('urgent_contact_form_submit', {
+                    form_type: 'free_site_visit',
+                    urgency: 'september_special_ending'
+                }));
             }
+
+            // Exit intent popup tracking
+            document.getElementById('exitIntentPopup')?.addEventListener('DOMContentLoaded', () => {
+                track('exit_intent_popup_shown', { 
+                    offer: 'extra_10_percent_off',
+                    urgency: 'leaving_page'
+                });
+            });
         });
     </script>
 </body>
